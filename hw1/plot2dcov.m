@@ -17,9 +17,7 @@ for j = 1:size(x,2)
     
 end
 
-figure
 plot(z(1,:),z(2,:))
-axis equal
 
 
 end

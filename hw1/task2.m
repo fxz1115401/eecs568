@@ -4,19 +4,21 @@ clear
 
 cov1=[1 0;0 2];
 mean1 = [0; 0];
+figure
+hold on
 for i = 1:3
     
-    figure
+    
     z  = plot2dcov( mean1, cov1, i );
-    axis equal
 
 end
 
 cov2=[3 -0.4;-0.4 2];
 mean2 = [5; 0];
+figure
+hold on
 for i = 1:3
     
-    figure
     z  = plot2dcov( mean2, cov2, i );
     axis equal
 
@@ -30,7 +32,7 @@ end
 %%%%%%
 
 %%% part C %%%
-n = 10000;
+n = 200;
 x = [randn(1,n);randn(1,n)];
 b = [2;2];
 A = chol([1 1.3; 1.3 3], 'lower');

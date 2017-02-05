@@ -37,4 +37,5 @@ figure
 hold on
 plot(x_real,'r')
 plot(mean_x,'b')
-plot(mean_x_post,'g')
+figure
+

@@ -69,7 +69,7 @@ sigma_X(:,1:3) = [0.1 0 0; 0 0.1 0;0 0 0.5];
 for i = 1:5
 
     E_X(:,i+1) = [E_X(1,i) + cos(E_X(3,i)) * delta_t * u(1); E_X(2,i) + sin(E_X(3,i)) * delta_t * u(1);E_X(3,i) + delta_t *u(2)];
-    G = [1 0 -sin(E_X(3,i)) * delta_t * u(1); 0 1 cos(E_X(3,i)) * delta_t * u(1); 0 0 1];
+    G = [1 0 -sin(E_X(3,i)) * delta_t * u(1); 0 1 cos(E_X(3,i)) * delta_t * u(1); 0 0 delta_t];
     sigma_X(:,3*i+1:3*i+3) = G * sigma_X(:,3*i-2:3*i) * G' +R;
     
     %z  = plot2dcov( E_X(:,i), sigma_X(:,3*i-2:3*i), 1);
@@ -89,7 +89,7 @@ hold on
 for i = 1:5
 
     E_X(:,i+1) = [E_X(1,i) + cos(E_X(3,i)) * delta_t * u(1); E_X(2,i) + sin(E_X(3,i)) * delta_t * u(1);E_X(3,i) + delta_t *u(2)];
-    G = [1 0 -sin(E_X(3,i)) * delta_t * u(1); 0 1 cos(E_X(3,i)) * delta_t * u(1); 0 0 1];
+    G = [1 0 -sin(E_X(3,i)) * delta_t * u(1); 0 1 cos(E_X(3,i)) * delta_t * u(1); 0 0 delta_t];
     V = [cos(E_X(3,i)) * delta_t 0; sin(E_X(3,i)) * delta_t 0; 0 delta_t];
     sigma_X(:,3*i+1:3*i+3) = G * sigma_X(:,3*i-2:3*i) * G' +V * R * V';
     z  = plot2dcov( E_X(1:2,i), sigma_X(1:2,3*i-2:3*i-1), 1);

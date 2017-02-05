@@ -18,12 +18,10 @@ z = 0.75;
 fun = @ (x) normpdf(x,1,1).*normpdf(z,x,0.2^0.5);
 p_z = integral(fun,-Inf,Inf);
 p_xgivenz=normpdf(X,1,1).*normpdf(0.75,X,0.2^0.5)/p_z;
-subplot(2,1,1)
+hold on
 plot(X,Y)
-axis equal
 
 
-subplot(2,1,2)
 plot(X,p_xgivenz)
 axis equal
 
